@@ -10,6 +10,7 @@ program.version('0.0.1')
         .option('-p --page [page]', 'Facebook page ID')
         .option('-i, --id [id]', 'Facebook post ID')
         .option('-t, --timeout [milliseconds]', 'The number of milliseconds to watch the url.')
+        .option('-l, --limit [limit]', 'The total number of reactions to return, defaults to 1000')
         .parse(process.argv);
 
 if( ! program.app || ! program.secret ) {
@@ -29,6 +30,7 @@ if( ! program.timeout ) {
 if( program.id && program.page ) {
 
     var facebook = new Facebook({ appId: program.app , secret: program.secret }),
+        url,
         output;
 
     function getResults() {
@@ -45,7 +47,13 @@ if( program.id && program.page ) {
             'PRIDE'     : 0
         };
 
-        facebook.api('/' + program.page + '_' + program.id + '/reactions', function( err, result ) {
+        if( program.limit ) {
+            url = '/' + program.page + '_' + program.id + '/reactions?limit=' + program.limit;
+        } else {
+            url = '/' + program.page + '_' + program.id + '/reactions?limit=1000';
+        }
+
+        facebook.api( url, function( err, result ) {
             if( err ) {
                 console.error( err );
                 process.exit(1);
@@ -53,6 +61,7 @@ if( program.id && program.page ) {
             result.data.forEach(function( obj, i ) {
                 output[obj.type] += 1;
             });
+
             console.log( output );
         });
 

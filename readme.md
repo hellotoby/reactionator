@@ -23,11 +23,14 @@ Reactionator has a few requirements in order to work properly.
 ## Options
 
 ```
+-h, --help                    output usage information
+-V, --version                 output the version number
 -a --app, [app]               Facebook app ID
 -s --secret [secret]          Facebook app secret
 -p --page [page]              Facebook page ID
 -i, --id [id]                 Facebook post ID
 -t, --timeout [milliseconds]  The number of milliseconds to watch the url.
+-l, --limit [limit]           The total number of reactions to return, defaults to 1000
 ```
 
 ## Output
