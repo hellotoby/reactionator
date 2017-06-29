@@ -1,8 +1,22 @@
 {
   "name": "reactionator",
   "version": "1.0.0",
+  "description": "cli application to retrieve reactions from a Facebook post.",
   "main": "reactionator",
+  "keywords": [
+    "Facebook",
+    "cli",
+    "reactions"
+  ],
+  "author": "Toby Vervaart",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hellotoby/reactionator"
+  },
+  "bugs": {
+      "url": "https://github.com/hellotoby/reactionator/issues"
+  },
   "dependencies": {
     "colors": "^1.1.2",
     "commander": "^2.10.0",
