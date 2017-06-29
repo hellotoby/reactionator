@@ -1,0 +1,11 @@
+{
+  "name": "reactionator",
+  "version": "1.0.0",
+  "main": "reactionator",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "commander": "^2.10.0",
+    "facebook-node-sdk": "^0.2.0"
+  }
+}
