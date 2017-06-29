@@ -14,12 +14,12 @@ program.version('0.0.1')
 
 if( ! program.app || ! program.secret ) {
     console.error('You must supply a Facebook App ID and Secret.'.bold.red);
-    process.exitCode = 1;
+    process.exit(1);
 }
 
 if( ! program.id ) {
     console.error('You must supply a post ID. Run reactionator -h for more options.'.bold.red);
-    process.exitCode = 1;
+    process.exit(1);
 }
 
 if( ! program.timeout ) {
@@ -48,7 +48,7 @@ if( program.id && program.page ) {
         facebook.api('/' + program.page + '_' + program.id + '/reactions', function( err, result ) {
             if( err ) {
                 console.error( err );
-                process.exitCode = 1;
+                process.exit(1);
             }
             result.data.forEach(function( obj, i ) {
                 output[obj.type] += 1;
