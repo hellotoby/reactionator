@@ -2,7 +2,7 @@
   "name": "reactionator",
   "version": "1.0.0",
   "description": "cli application to retrieve reactions from a Facebook post.",
-  "main": "reactionator",
+  "main": "reactionator.js",
   "keywords": [
     "Facebook",
     "cli",
