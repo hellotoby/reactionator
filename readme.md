@@ -1,13 +1,15 @@
-![](https://media.giphy.com/media/HY2tEPTzqHYwE/giphy-downsized.gif)
-
 # Reactionator
+
+![](https://media.giphy.com/media/HY2tEPTzqHYwE/giphy-downsized.gif)
 
 Retrieves a Facebook post's reactions for you.
 
 ## Installation
 
 `npm install reactionator -g`
+
 or
+
 `yarn global add reactionator`
 
 ## Requirements
