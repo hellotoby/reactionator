@@ -54,15 +54,21 @@ if( program.id && program.page ) {
         }
 
         facebook.api( url, function( err, result ) {
+
             if( err ) {
                 console.error( err );
                 process.exit(1);
             }
+
             result.data.forEach(function( obj, i ) {
                 output[obj.type] += 1;
             });
 
             console.log( output );
+
+            // unset
+            output = {};
+
         });
 
     }
