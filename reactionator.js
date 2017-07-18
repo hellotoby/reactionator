@@ -66,8 +66,7 @@ if( program.id && program.page ) {
 
             console.log( output );
 
-            // unset
-            output = {};
+            delete output;
 
         });
 
