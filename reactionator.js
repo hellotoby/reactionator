@@ -60,14 +60,19 @@ if( program.id && program.page ) {
                 process.exit(1);
             }
 
-            result.data.forEach(function( obj, i ) {
-                output[obj.type] += 1;
-            });
+            // Occasionally output is undefined. Need to debug. For now ignore.
+            if( output ) {
 
-            console.log( output );
+                result.data.forEach(function( obj, i ) {
+                    output[obj.type] += 1;
+                });
 
-            // Need to unset / delete here
-            delete output;
+                console.log( output );
+
+                // Need to unset / delete here
+                delete output;
+
+            }
 
         });
 
