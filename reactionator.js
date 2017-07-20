@@ -61,7 +61,7 @@ if( program.id && program.page ) {
             }
 
             // Occasionally output is undefined. Need to debug. For now ignore.
-            if( output != null ) {
+            if( typeof output != 'object' ) {
 
                 result.data.forEach(function( obj, i ) {
                     output[obj.type] += 1;
