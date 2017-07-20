@@ -30,11 +30,11 @@ if( ! program.timeout ) {
 if( program.id && program.page ) {
 
     var facebook = new Facebook({ appId: program.app , secret: program.secret }),
-        url,
-        output;
+        url;
 
     function getResults() {
 
+        // https://stackoverflow.com/questions/1596782/how-to-unset-a-javascript-variable
         output = {
             'NONE'      : 0,
             'LIKE'      : 0,
@@ -66,6 +66,7 @@ if( program.id && program.page ) {
 
             console.log( output );
 
+            // Need to unset / delete here
             delete output;
 
         });
