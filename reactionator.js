@@ -4,7 +4,7 @@ var program     = require('commander'),
     colors      = require('colors'),
     Facebook    = require('facebook-node-sdk');
 
-program.version('1.5.8')
+program.version('1.5.9')
         .option('-a --app, [app]', 'Facebook app ID')
         .option('-s --secret [secret]', 'Facebook app secret')
         .option('-p --page [page]', 'Facebook page ID')
@@ -71,12 +71,6 @@ if( program.id ) {
                 console.error('No type supplied');
                 process.exit(1);
 
-        }
-
-        if( program.limit ) {
-            url = '/' + program.page + '_' + program.id + '/reactions?limit=' + program.limit;
-        } else {
-            url = '/' + program.page + '_' + program.id + '/reactions?limit=1000';
         }
 
         facebook.api( url, function( err, result ) {
