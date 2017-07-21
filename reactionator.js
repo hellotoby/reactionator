@@ -4,13 +4,14 @@ var program     = require('commander'),
     colors      = require('colors'),
     Facebook    = require('facebook-node-sdk');
 
-program.version('0.0.1')
+program.version('1.5.6')
         .option('-a --app, [app]', 'Facebook app ID')
         .option('-s --secret [secret]', 'Facebook app secret')
         .option('-p --page [page]', 'Facebook page ID')
         .option('-i, --id [id]', 'Facebook post ID')
         .option('-t, --timeout [milliseconds]', 'The number of milliseconds to watch the url.')
         .option('-l, --limit [limit]', 'The total number of reactions to return, defaults to 1000')
+        .option('-t --type [post, live], Whether this is a post or a live video')
         .parse(process.argv);
 
 if( ! program.app || ! program.secret ) {
@@ -46,6 +47,31 @@ if( program.id && program.page ) {
             'THANKFUL'  : 0,
             'PRIDE'     : 0
         };
+
+        switch( program.type ) {
+
+            case 'post':
+                if( program.limit ) {
+                    url = '/' + program.page + '_' + program.id + '/reactions?limit=' + program.limit;
+                } else {
+                    url = '/' + program.page + '_' + program.id + '/reactions?limit=1000';
+                }
+            break;
+
+            case 'live':
+                // https://developers.facebook.com/docs/graph-api/reference/live-video/reactions/
+                if( program.limit ) {
+                    url = '/' + program.id + '/reactions?limit=' + program.limit;
+                } else {
+                    url = '/' + program.id + '/reactions?limit=1000';
+                }
+            break;
+
+            default:
+                console.error('No type supplied');
+                process.exit(1);
+
+        }
 
         if( program.limit ) {
             url = '/' + program.page + '_' + program.id + '/reactions?limit=' + program.limit;
