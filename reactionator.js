@@ -4,7 +4,7 @@ var program     = require('commander'),
     colors      = require('colors'),
     Facebook    = require('facebook-node-sdk');
 
-program.version('1.5.6')
+program.version('1.5.7')
         .option('-a --app, [app]', 'Facebook app ID')
         .option('-s --secret [secret]', 'Facebook app secret')
         .option('-p --page [page]', 'Facebook page ID')
@@ -28,7 +28,7 @@ if( ! program.timeout ) {
     console.warn('No timeout supplied. Job will only run once.'.yellow);
 }
 
-if( program.id && program.page ) {
+if( program.id ) {
 
     var facebook = new Facebook({ appId: program.app , secret: program.secret }),
         url;
