@@ -1,6 +1,6 @@
 {
   "name": "reactionator",
-  "version": "1.5.9",
+  "version": "1.5.10",
   "description": "cli application to retrieve reactions from a Facebook post.",
   "main": "reactionator.js",
   "keywords": [
@@ -15,7 +15,7 @@
     "url": "https://github.com/hellotoby/reactionator"
   },
   "bugs": {
-      "url": "https://github.com/hellotoby/reactionator/issues"
+    "url": "https://github.com/hellotoby/reactionator/issues"
   },
   "dependencies": {
     "colors": "^1.1.2",
@@ -23,6 +23,6 @@
     "facebook-node-sdk": "^0.2.0"
   },
   "bin": {
-      "reactionator": "./reactionator.js"
+    "reactionator": "./reactionator.js"
   }
 }
